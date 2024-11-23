@@ -8,6 +8,8 @@ test:
     - gcp
 
 build:
+  needs:
+    - test
   script:
     - echo "Build stage has been started"
     - docker build -t test .
@@ -15,6 +17,8 @@ build:
     - gcp
 
 deploy:
+  needs:
+    - build
   script:
     - echo "Deploy stage has been started"
     - gcloud compute ssh myapp --zone=us-central1-a --command="sudo docker run -d nginx:alpine"
