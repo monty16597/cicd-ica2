@@ -1,5 +1,7 @@
 test:
   script:
+      - whoami
+      - id
       - echo "Test stage has been started" 
       - python3 --version ; pip --version  # For debugging
       - pip3 install -r requirements.txt --break-system-packages
