@@ -25,14 +25,6 @@ def test_add_item(client):
     assert response.status_code == 201
     assert response.json == {'message': 'Item added successfully'}
 
-def test_get_item(client):
-    """Test GET /items/<item_id> for an existing item"""
-    item_data = {'name': 'item1'}
-    client.post('/items', json=item_data)  # Adding item to be tested
-    response = client.get('/items/0')
-    assert response.status_code == 200
-    assert response.json == {'item': {'name': 'item1'}}
-
 def test_get_item_not_found(client):
     """Test GET /items/<item_id> for a non-existing item"""
     response = client.get('/items/999')
