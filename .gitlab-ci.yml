@@ -5,8 +5,9 @@ test:
       - echo "Test stage has been started" 
       - python3 --version ; pip --version  # For debugging
       - pip3 install -r requirements.txt --break-system-packages
-      - python3 -m unittest discover tests
-      - pytest
+      - pytest tests/test_app.py
+      - pytest tests/test_black_box.py
+      - pytest tests/test_white_box.py
   tags:
     - gcp
 
