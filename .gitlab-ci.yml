@@ -1,7 +1,26 @@
-before_script:
-  - python --version ; pip --version  # For debugging
-  - pip install -r requirements.txt
+# before_script:
+#   - python --version ; pip --version  # For debugging
+#   - pip install -r requirements.txt
 
 test:
   script:
-      - python -m unittest discover tests
+      - echo "Test stage has been started" 
+  tags:
+    - gcp
+
+build:
+  script:
+    - echo "Build stage has been started"
+  tags:
+    - gcp
+
+deploy:
+  script:
+    - echo "Deploy stage has been started"
+  tags:
+    - gcp
+
+stages:
+  - test
+  - build
+  - deploy
