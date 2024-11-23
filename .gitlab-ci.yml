@@ -14,7 +14,7 @@ build:
     - test
   script:
     - echo "Build stage has been started"
-    - docker build -t test .
+    - docker build -t gcr.io/black-journal-436122-b5/my-gitlab-app:latest .
   tags:
     - gcp
 
@@ -23,7 +23,8 @@ deploy:
     - build
   script:
     - echo "Deploy stage has been started"
-    - gcloud compute ssh myapp --zone=us-central1-a --command="sudo docker run -d nginx:alpine"
+    - docker push gcr.io/black-journal-436122-b5/my-gitlab-app:latest
+    - gcloud compute ssh myapp --zone=us-central1-a --command="sudo docker run -d gcr.io/black-journal-436122-b5/my-gitlab-app:latest"
   tags:
     - gcp
 
