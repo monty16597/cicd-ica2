@@ -24,7 +24,7 @@ deploy:
   script:
     - echo "Deploy stage has been started"
     - docker push gcr.io/black-journal-436122-b5/my-gitlab-app:latest
-    - gcloud compute ssh myapp --zone=us-central1-c --command="sudo docker run -d gcr.io/black-journal-436122-b5/my-gitlab-app:latest"
+    - gcloud compute ssh myapp@myapp --zone=us-central1-c --command="sudo docker run -d gcr.io/black-journal-436122-b5/my-gitlab-app:latest"
   tags:
     - gcp
 
