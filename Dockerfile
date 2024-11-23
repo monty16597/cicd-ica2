@@ -20,4 +20,4 @@ ENV PYTHONUNBUFFERED 1
 EXPOSE 8000
 
 # Command to run your application (adjust if necessary)
-CMD ["python", "app.py"]
+CMD ["python", "run.py"]
