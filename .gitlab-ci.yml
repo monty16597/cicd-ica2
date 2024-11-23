@@ -17,6 +17,7 @@ build:
 deploy:
   script:
     - echo "Deploy stage has been started"
+    - gcloud compute ssh myapp --zone=us-central1-a --command="sudo docker run -d nginx:alpine"
   tags:
     - gcp
 
